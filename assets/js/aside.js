@@ -1,19 +1,6 @@
 $(function() {
   // 获取url地址栏
-  var href = location.href;
-
-  var index = href.indexOf("?");
-
-  //  定义一个变量来存储路由名称
-  var routerName = "";
-
-  // 判断是否有参数
-  if (index == -1) {
-    //   没有参数
-    routerName = href.substring(href.lastIndexOf("/") + 1);
-  } else {
-    routerName = href.substring(href.lastIndexOf("/") + 1, href.indexOf("?"));
-  }
+  var routerName = itcast.getRouterName(location.href);
 
   // 获取要操控的元素
   var menu_posts = $("#menu-posts");

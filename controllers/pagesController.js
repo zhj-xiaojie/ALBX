@@ -3,6 +3,7 @@
 // 引入核心模块
 const fs = require("fs");
 const path = require("path");
+const querystring = require("querystring");
 
 // 前台页面
 module.exports.getIndexPage = (req, res) => {
@@ -27,8 +28,18 @@ module.exports.getListPage = (req, res) => {
 // 后台页面
 
 module.exports.getAIndexPage = (req, res) => {
+  // render函数完成了三个事件
+  //   读取文件内容
+  //   如果有数据，就进行动态渲染
+  //   将渲染结果返回
+
+  // 判断用户是否登陆过
+  // var cookie = querystring.parse(req.headers.cookie);
+  // if (cookie.isLogin && cookie.isLogin == "true") {
   res.render("admin/index.ejs");
+  // }
 };
+// 后台分页面
 module.exports.getCategoriesPage = (req, res) => {
   res.render("admin/categories.ejs");
 };
